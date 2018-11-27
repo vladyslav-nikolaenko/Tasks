@@ -12,9 +12,13 @@ public class Lesson_5 {
         System.out.println("Task 4 (Max):" + maxElemOfArr(arr));
         simpleOutput(arr);
         inverseOutput(arr);
-        System.out.println("\n*******Practical lessons*******");
         palindromeVerification(arr);
 
+        //Practical task
+        System.out.println("\n*******Practical lessons*******");
+        System.out.println("Task 1: Avg = " + avgOfArray(arr));
+        int[] arr1 = {3,4,5,1,2}, arr2 = {2,3,4,5,1};
+        System.out.println("Task 17: " + countOfReverses(arr1, arr2));
     }
 
     //<begin> - Homework
@@ -94,13 +98,14 @@ public class Lesson_5 {
         System.out.print("Task 6(inverse output): ");
         for(int i = arr.length-1; i >=0 ; i--){
             System.out.print(arr[i] + " ");
+          //  System.currentTimeMillis()
         }
 
     }
 
     //<end> - Homework
 
-    //Practical lessons
+    //ProHomework lessons
     //Task 4
     public static void palindromeVerification(int[] arr){
 
@@ -115,4 +120,42 @@ public class Lesson_5 {
             System.out.println("Task 4: No, it isn't palindrome!");
 
     }
+
+    //Practical tasks
+    //Task 1
+    public static float avgOfArray(int[] arr){
+        int sum = 0, i = 0;
+        for(i = 0; i < arr.length; i++){
+
+            sum += arr[i];
+
+        }
+        return sum/arr.length;
+
+    }
+
+    //Task 17
+    public static int countOfReverses(int[] arr1, int[] arr2){
+
+        int i, id = 0, countRevers = 0;
+
+        for(i = 0; i < arr2.length - 1; i++){
+
+            if ((arr2[i] ^ arr2[i + 1]) != 0) id = arr2[i] ^ arr2[i + 1];
+
+        }
+
+
+        for(i = 0; i < arr1.length - 1; i++){
+
+            if ((arr1[i] ^ arr1[i + 1]) == id) countRevers = i;
+
+        }
+
+        return countRevers;
+
+    }
+
+
+
 }
