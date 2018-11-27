@@ -18,7 +18,17 @@ public class Lesson_5 {
         System.out.println("\n*******Practical lessons*******");
         System.out.println("Task 1: Avg = " + avgOfArray(arr));
         int[] arr1 = {3,4,5,1,2}, arr2 = {2,3,4,5,1};
+        //Task 17
         System.out.println("Task 17: " + countOfReverses(arr1, arr2));
+        //Task 18
+        System.out.println("Task 18:");
+        int[][] dividedArray = divideArray(arr);
+        for(int i = 0; i < dividedArray.length; i++){
+            for(int j = 0; j < dividedArray[i].length; j++){
+                System.out.print(dividedArray[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
     //<begin> - Homework
@@ -154,6 +164,26 @@ public class Lesson_5 {
 
         return countRevers;
 
+    }
+
+    //Task 18
+    public static int[][] divideArray(int[] arr){
+
+        byte odd = 0, even = 0, i = 0;
+        int[][] oddEvenArrey = new int[2][];
+        for(;i < arr.length; i++){
+            if (arr[i] % 2 == 0) even++; else odd++;
+        }
+
+        oddEvenArrey[0] = new int[odd];
+        oddEvenArrey[1] = new int[even];
+        odd = 0; even = 0;
+        for(i = 0;i < arr.length; i++){
+            if (arr[i] % 2 == 0) oddEvenArrey[1][even++] = arr[i]; else
+                oddEvenArrey[0][odd++] = arr[i];
+        }
+
+        return oddEvenArrey;
     }
 
 
