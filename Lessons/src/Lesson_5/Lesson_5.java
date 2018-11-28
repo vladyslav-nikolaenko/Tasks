@@ -158,7 +158,7 @@ public class Lesson_5 {
 
             }
 
-            if(i == arr1.length - 1) break;
+            if (i == arr1.length) break;
 
             tmp2 = arr1[arr1.length - 1];
             for (i = 0; i < arr1.length; i++) {
@@ -168,7 +168,7 @@ public class Lesson_5 {
                 arr1[i] = tmp1;
 
             }
-            
+
         }
 
         return k;
