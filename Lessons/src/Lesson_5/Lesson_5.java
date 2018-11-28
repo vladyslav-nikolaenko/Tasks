@@ -12,7 +12,7 @@ public class Lesson_5 {
         System.out.println("Task 4 (Max):" + maxElemOfArr(arr));
         simpleOutput(arr);
         inverseOutput(arr);
-        palindromeVerification(arr);
+        isPalindrome(arr);
 
         //Practical task
         System.out.println("\n*******Practical lessons*******");
@@ -117,12 +117,13 @@ public class Lesson_5 {
 
     //ProHomework lessons
     //Task 4
-    public static void palindromeVerification(int[] arr){
+    public static void isPalindrome(int[] arr){
 
         byte i = 0, result = 0;
         for(; i < arr.length/2; i++){
 
-            result += arr[i]^arr[arr.length-1-i];
+           if ((arr[i]^arr[arr.length-1-i]) != 0) break;
+               result += arr[i]^arr[arr.length-1-i];
 
         }
 
@@ -134,8 +135,8 @@ public class Lesson_5 {
     //Practical tasks
     //Task 1
     public static float avgOfArray(int[] arr){
-        int sum = 0, i = 0;
-        for(i = 0; i < arr.length; i++){
+        int sum = 0;
+        for(int i = 0; i < arr.length; i++){
 
             sum += arr[i];
 
@@ -170,20 +171,23 @@ public class Lesson_5 {
     public static int[][] divideArray(int[] arr){
 
         byte odd = 0, even = 0, i = 0;
-        int[][] oddEvenArrey = new int[2][];
+        int[][] oddEvenArray = new int[2][];
         for(;i < arr.length; i++){
-            if (arr[i] % 2 == 0) even++; else odd++;
+            if (arr[i] % 2 == 0)
+                even++;
+            else
+                odd++;
         }
 
-        oddEvenArrey[0] = new int[odd];
-        oddEvenArrey[1] = new int[even];
+        oddEvenArray[0] = new int[odd];
+        oddEvenArray[1] = new int[even];
         odd = 0; even = 0;
         for(i = 0;i < arr.length; i++){
-            if (arr[i] % 2 == 0) oddEvenArrey[1][even++] = arr[i]; else
-                oddEvenArrey[0][odd++] = arr[i];
+            if (arr[i] % 2 == 0) oddEvenArray[1][even++] = arr[i]; else
+                oddEvenArray[0][odd++] = arr[i];
         }
 
-        return oddEvenArrey;
+        return oddEvenArray;
     }
 
 
