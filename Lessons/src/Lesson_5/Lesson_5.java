@@ -17,7 +17,7 @@ public class Lesson_5 {
         //Practical task
         System.out.println("\n*******Practical lessons*******");
         System.out.println("Task 1: Avg = " + avgOfArray(arr));
-        int[] arr1 = {3,4,5,1,2}, arr2 = {2,3,4,5,1};
+        int[] arr1 = {1,2,3,4,5}, arr2 = {2,3,4,5,1};
         //Task 17
         System.out.println("Task 17: " + countOfReverses(arr1, arr2));
         //Task 18
@@ -148,22 +148,30 @@ public class Lesson_5 {
     //Task 17
     public static int countOfReverses(int[] arr1, int[] arr2){
 
-        int i, id = 0, countRevers = 0;
+        int i, k, tmp1, tmp2;
 
-        for(i = 0; i < arr2.length - 1; i++){
+        for(k = 0; k < arr1.length; k++) {
 
-            if ((arr2[i] ^ arr2[i + 1]) != 0) id = arr2[i] ^ arr2[i + 1];
+            for (i = 0; i < arr1.length; i++) {
 
+                if (arr1[i] != arr2[i]) break;
+
+            }
+
+            if(i == arr1.length - 1) break;
+
+            tmp2 = arr1[arr1.length - 1];
+            for (i = 0; i < arr1.length; i++) {
+
+                tmp1 = tmp2;
+                tmp2 = arr1[i];
+                arr1[i] = tmp1;
+
+            }
+            
         }
 
-
-        for(i = 0; i < arr1.length - 1; i++){
-
-            if ((arr1[i] ^ arr1[i + 1]) == id) countRevers = i;
-
-        }
-
-        return countRevers;
+        return k;
 
     }
 
